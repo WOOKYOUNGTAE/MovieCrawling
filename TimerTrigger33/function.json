@@ -11,7 +11,7 @@
       "name": "tablePath",
       "type": "table",
       "direction": "out",
-      "tableName": "weathertable7",
+      "tableName": "wookttable",
      "connection": "AzureWebJobsStorage"
      
     }

@@ -15,7 +15,7 @@ from azure.data.tables import TableServiceClient
 from azure.core.exceptions import HttpResponseError
 
 sys.path.append("./")
-from . import weather_az1
+from . import crawlingpj
 
 # import weather_az1
 
@@ -46,8 +46,8 @@ def main(mytimer: func.TimerRequest, tablePath:func.Out[str]) -> None:
     # new_data = {"PartitionKey": "temp", "RowKey": utc_timestamp}
     
 
-    print("weather!!")
-    tags = weather_az1.scrape_weather()
+    print("crawling!!")
+    tags = crawlingpj.get_reple()
     logging.info("tags data %s",tags)
     #print(tags)
     #weather_data = []
@@ -55,8 +55,6 @@ def main(mytimer: func.TimerRequest, tablePath:func.Out[str]) -> None:
     new_data = {
         "curr_temp": tags[0],
         "cast": tags[1],
-        "s_list": tags[2],
-        "chart_list": tags[3],
         # "PartitionKey": f"종목명{i}",
         # "RowKey": time.time()
         "PartitionKey": "temp",
